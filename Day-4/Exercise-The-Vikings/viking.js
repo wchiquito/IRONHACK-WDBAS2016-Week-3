@@ -1,5 +1,6 @@
 var util = require('./util.js');
 var fighter = require('./fighter.js');
+var viking = require('./viking.js');
 
 var HEALTH = [50, 101];
 var STRENGTH = [5, 8];
@@ -23,14 +24,12 @@ var MALES = [
             ]
 
 function Viking() {
-    var viking = new fighter.Fighter(util.getRandomInt(HEALTH[0], HEALTH[1]),
-                                     util.getRandomInt(STRENGTH[0], STRENGTH[1])
-                                    );
-    viking.name = getName();
-    return viking;
+    this.health = util.getRandomInt(HEALTH[0], HEALTH[1]);
+    this.strength = util.getRandomInt(STRENGTH[0], STRENGTH[1]);
+	this.name = getName();
 }
 
-Viking.prototype = fighter.Fighter.prototype;
+Viking.prototype = new fighter.Fighter();
 Viking.prototype.constructor = Viking;
 
 function getName() {
