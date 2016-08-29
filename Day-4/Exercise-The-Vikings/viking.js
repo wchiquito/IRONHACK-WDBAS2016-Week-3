@@ -28,7 +28,7 @@ function Viking() {
     this.name = getName();
 }
 
-Viking.prototype = new fighter.Fighter();
+Viking.prototype = Object.create(fighter.Fighter.prototype);
 Viking.prototype.constructor = Viking;
 
 function getName() {
