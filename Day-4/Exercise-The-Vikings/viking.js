@@ -23,12 +23,14 @@ var MALES = [
             ]
 
 function Viking() {
-    this.health = util.getRandomInt(HEALTH[0], HEALTH[1]);
-    this.strength = util.getRandomInt(STRENGTH[0], STRENGTH[1]);
+    fighter.Fighter.call(this,
+                         util.getRandomInt(HEALTH[0], HEALTH[1]),
+                         util.getRandomInt(STRENGTH[0], STRENGTH[1])
+                        );
     this.name = getName();
 }
 
-Viking.prototype = new fighter.Fighter();
+Viking.prototype = Object.create(fighter.Fighter.prototype);
 Viking.prototype.constructor = Viking;
 
 function getName() {
